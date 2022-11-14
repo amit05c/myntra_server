@@ -4,8 +4,10 @@ const express= require("express")
 const {authentication} = require("./middleware/athentication")
 const { dataRouter } = require("./routes/data")
 const { cartRouter } = require("./routes/cart")
+const cors= require("cors")
 require('dotenv').config()
 const app= express()
+app.use(cors())
 const PORT= process.env.PORT || 8080
 app.get("/",async(req,res)=>{
     res.send("welcome to myntra")
