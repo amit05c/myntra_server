@@ -62,11 +62,11 @@ dataRouter.get("/", async (req, res) => {
     }else if(category.length>0){
       // C
       let data = await DataModel.find({category: { $in: [...category ] }});
-      res.send({data});
+      res.send(data);
     }else{
       // console.log("amit")
       let data = await DataModel.find({});
-      res.send({ data });
+      res.send(data);
     }
   
 });
@@ -74,12 +74,12 @@ dataRouter.get("/", async (req, res) => {
 dataRouter.get("/singleProd/:_id", async (req, res) => {
   let { _id } = req.params;
 
-  console.log(_id);
+  // console.log(_id);
   let data = await DataModel.findOne({ _id });
-  console.log({data});
+  // console.log({data});
 
   console.log("amit");
-  res.send({data});
+  res.send(data);
 });
 
 dataRouter.get("/sort", async (req, res) => {
