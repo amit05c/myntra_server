@@ -34,13 +34,13 @@ userRouter.post("/login",async(req,res)=>{
 
         var token =  jwt.sign({userId: user._id}, process.env.JWT_SECRET);
         // console.log(token)
-         res.status(400).send({
+         res.status(200).send({
             message: "login successful",
             token
          })
 
        }else{
-          res.status(200).send({"Error":"someting error"})
+          res.status(400).send({"Error":"someting error"})
        
        }
     });
