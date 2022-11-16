@@ -1,6 +1,7 @@
 const mongoose= require("mongoose")
 
 const dataSchema= new mongoose.Schema({
+    _id: {type: String},
     category: {type: String, require:true},
     title: {type: String, require : true},
     item: { type: String, require: true},
