@@ -16,6 +16,7 @@ cartRouter.post("/add/:_id",async(req,res)=>{
         price:data.price,
         image_url: data.image_url,
         userId,
+        price:data.price,
         productId: data._id
        })
        console.log(newCartData)
