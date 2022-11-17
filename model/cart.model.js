@@ -8,7 +8,9 @@ const cartSchema= new mongoose.Schema({
     size:String,
     price: Number,
     userId:String,
-    productId: String
+    productId: String,
+    rate: Number,
+    qty: Number
 })
 
 const CartModel = mongoose.model('cart_data',cartSchema)

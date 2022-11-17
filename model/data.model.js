@@ -1,12 +1,13 @@
 const mongoose= require("mongoose")
 
 const dataSchema= new mongoose.Schema({
-    _id: {type: String},
+    
     category: {type: String, require:true},
     title: {type: String, require : true},
     item: { type: String, require: true},
     image_url: {type: [String]},
-    price: {type: Number, require: true}
+    price: {type: Number, require: true},
+    size: {type: [String]}
 })
 
 const DataModel = mongoose.model('data',dataSchema)

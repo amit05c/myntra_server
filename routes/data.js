@@ -170,6 +170,14 @@ dataRouter.get("/filter", async (req, res) => {
   }
 });
 
+
+dataRouter.post("/add",async(req,res)=>{
+  let newData= DataModel(req.body)
+  await newData.save()
+  res.send("Item added")
+})
+
+
 module.exports = {
   dataRouter,
 };
