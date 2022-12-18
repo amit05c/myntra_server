@@ -32,6 +32,9 @@ userRouter.post("/signup",async(req,res)=>{
 userRouter.post("/login",async(req,res)=>{
     let {email,password}= req.body
     let user= await UserModel.findOne({email})
+    if(!user) return res.status(400).send({Error: "Register first"})
+
+    
     let hash= user.password
     bcrypt.compare(password, hash, async function(err, result) {
         // console.log(result)
@@ -45,7 +48,7 @@ userRouter.post("/login",async(req,res)=>{
          })
 
        }else{
-          res.status(400).send({"Error":"someting error"})
+          res.status(400).send({"Error":"Login failed"})
        
        }
     });
