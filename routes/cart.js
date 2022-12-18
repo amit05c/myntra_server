@@ -97,7 +97,18 @@ cartRouter.get("/total",(req,res)=>{
     }
 })
 
+cartRouter.delete("/checkout",async(req,res)=>{
+    let {userId}= req.body
+    let x= await CartModel.deleteMany({userId})
 
+    if(x.deletedCount>0){
+         console.log(x)
+       return res.status(200).send("Item deleted")
+    }else{
+        res.status(400).send({"Error": "something eror"})
+    }
+
+})
 
 module.exports={
     cartRouter
